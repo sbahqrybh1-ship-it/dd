@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإصباح في اللغة العربية - الصف الثاني عشر</title>
+    <!-- Google Fonts: Cairo, Poppins, Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-default: #222222;
+            --color-primary: #8a1538;
+            --color-primary-hover: #773347;
+            --color-secondary: #f85a40;
+            --color-text: #313b40;
+            --color-blue: #165a7b;
+            --blue-color-translucent: rgba(22, 90, 123, 0.175);
+            --blue-color-translucent1: rgb(225 240 247 / 34%);
+            --color-white: #fff;
+            --grey-color-translucent: rgb(183 183 183 / 34%);
+            --color-grey: #f2f2f2;
+            --color-grey1: #f5f4ef;
+            --color-grey2: #aaa;
+            --color-grey3: #767171;
+            --color-grey4: #3b404c;
+            --color-grey5: rgb(242 242 242 / 52%);
+            --color-black: #000;
+            
+            --font-default: "Open Sans", system-ui, -apple-system, sans-serif;
+            --font-primary: 'Cairo', sans-serif;
+            --font-secondary: "Poppins", sans-serif;
+            
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-primary);
+            direction: rtl;
+            background: var(--color-white);
+            color: var(--color-text);
+            line-height: 1.8;
+            font-size: 19px;
+        }
+
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-primary);
+            font-weight: 600;
+        }
+
+        ::selection {
+            color: var(--color-white);
+            background: var(--color-primary);
+        }
+
+        .primary-button {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+        .primary-button:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .gov-gray-box {
+            background-color: var(--color-grey1);
+            border: 1px solid var(--color-grey2);
+        }
+
+        .maroon-header {
+            background-color: var(--color-primary);
+        }
+
+        .blue-header {
+            background-color: var(--color-blue);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <div class="blue-header text-white text-[13px] py-2.5 px-4 shadow-sm">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-2 font-['Cairo']">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#EAB893]"></span>
+                <span>دولة قطر — وزارة التربية والتعليم والتعليم العالي (منصة الإصباح التعليمية)</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="adjustFontSize(1)" class="px-2.5 py-0.5 bg-white/10 hover:bg-white/20 rounded text-[13px] font-medium">A+</button>
+                <button onclick="adjustFontSize(-1)" class="px-2.5 py-0.5 bg-white/10 hover:bg-white/20 rounded text-[13px] font-medium">A-</button>
+                <span class="text-slate-300">|</span>
+                <button onclick="go('admin')" class="px-3.5 py-1 bg-[#EAB893]/20 hover:bg-[#EAB893]/30 text-[#EAB893] border border-[#EAB893]/30 rounded text-[13px] font-medium flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>لوحة تحكم المعلم (بدون كلمة سر)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3.5 cursor-pointer" onclick="go('home')">
+                <div class="w-12 h-12 rounded-xl maroon-header text-white flex items-center justify-center font-bold text-xl shadow">
+                    أ
+                </div>
+                <div>
+                    <h2 class="text-base font-bold text-[#8a1538] leading-tight">الإصباح في اللغة العربية</h2>
+                    <p class="text-[13px] text-[#767171] font-normal font-['Open_Sans']">الصف الثاني عشر – الفصل الدراسي الأول</p>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-[#313b40]">
+                <button onclick="go('home')" class="hover:text-[#8a1538] transition-colors">الرئيسية</button>
+                <button onclick="go('branch','lit')" class="hover:text-[#8a1538] transition-colors">الفرع الأدبي</button>
+                <button onclick="go('branch','sci')" class="hover:text-[#8a1538] transition-colors">الفرع العلمي</button>
+                <button onclick="go('quizzes')" class="hover:text-[#8a1538] transition-colors">بنك الأسئلة</button>
+                <button onclick="go('about')" class="hover:text-[#8a1538] transition-colors">عن المنصة</button>
+            </nav>
+
+            <div class="flex items-center gap-2.5">
+                <button onclick="go('admin')" class="px-3.5 py-2 bg-[#f5f4ef] hover:bg-slate-200 text-[#8a1538] border border-[#8a1538]/30 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>لوحة التحكم</span>
+                </button>
+                <button onclick="go('quizzes')" class="px-4 py-2 primary-button text-xs font-semibold shadow transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>الاختبار التفاعلي</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8 space-y-6" id="app-content">
+        <!-- Dynamic content injected here -->
+    </main>
+
+    <footer class="bg-[#165A7B] text-slate-100 mt-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm font-['Cairo']">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 text-white font-bold text-base">
+                    <div class="w-8 h-8 rounded-lg bg-[#8a1538] flex items-center justify-center text-white">أ</div>
+                    <span>منصة الإصباح التعليمية</span>
+                </div>
+                <p class="text-slate-200 leading-relaxed text-xs font-['Open_Sans']">
+                    مرجعك الأول لدراسة النحو والصرف وقواعد اللغة العربية للصف الثاني عشر بأسلوب مبسط ومحاكي لمعايير الاختبارات الوزارية بدولة قطر.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="font-bold text-white text-xs">روابط سريعة</h4>
+                <div class="flex flex-col space-y-2 text-slate-200 text-xs">
+                    <button onclick="go('home')" class="text-right hover:text-[#EAB893] transition-colors">الصفحة الرئيسية</button>
+                    <button onclick="go('branch','lit')" class="text-right hover:text-[#EAB893] transition-colors">مقرر الفرع الأدبي</button>
+                    <button onclick="go('branch','sci')" class="text-right hover:text-[#EAB893] transition-colors">مقرر الفرع العلمي</button>
+                    <button onclick="go('quizzes')" class="text-right hover:text-[#EAB893] transition-colors">بنك التدريبات والاختبارات</button>
+                    <button onclick="go('admin')" class="text-right text-[#EAB893] hover:underline transition-colors">لوحة تحكم المعلم (بدون كلمة سر)</button>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="font-bold text-white text-xs">تواصل ومتابعة</h4>
+                <div class="flex flex-col space-y-2 text-xs">
+                    <div class="inline-flex items-center gap-2 text-slate-200">
+                        <i class="fa-solid fa-graduation-cap text-[#EAB893] text-sm bg-white/10 p-1 rounded"></i>
+                        <span>دولة قطر — وزارة التربية والتعليم والتعليم العالي</span>
+                    </div>
+                    <p class="text-slate-300 font-['Open_Sans']">منصة تعليمية معتمدة للتعلم الذاتي والتفاعلي</p>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-[#165A7B]/60 py-4 text-center text-xs text-slate-300 font-['Cairo']">
+            جميع الحقوق محفوظة &copy; 2026 - منصة الإصباح في اللغة العربية | دولة قطر
+        </div>
+    </footer>
+
+    <script>
+        const defaultTeacherPhoto = "صورة1.jpg";
+        
+        let portalData = {
+            currentView: 'home',
+            currentBranch: null,
+            currentLesson: null,
+            fontSizeMultiplier: parseInt(localStorage.getItem('esbah_fontSize')) || 19,
+            teacherName: localStorage.getItem('esbah_teacherName') || "أستاذ المادة",
+            teacherTitle: localStorage.getItem('esbah_teacherTitle') || "خبير اللغة العربية",
+            teacherPhoto: localStorage.getItem('esbah_teacherPhoto') || defaultTeacherPhoto,
+            branches: JSON.parse(localStorage.getItem('esbah_branches')) || {
+                lit: {
+                    title: "الفرع الأدبي",
+                    description: "المقرر الشامل لطلاب الفرع الأدبي في النحو والصرف والبلاغة وفق معايير دولة قطر.",
+                    icon: "fa-book-open",
+                    lessons: [
+                        { id: 1, title: "إعمال المصدر وأحكامه", category: "الصرف والنحو", summary: "شرح تفصيلي حول شروط عمل المصدر الصريح عمل فعله بشروط محددة." },
+                        { id: 2, title: "المصادر المؤولة وأحكامها", category: "النحو", summary: "كيفية تأويل المصدر الحرفي مع صلته وتحديد محله الإعرابي بدقة." },
+                        { id: 3, title: "أسلوب التفضيل وأحوال اسم التفضيل", category: "الصرف", summary: "حالات اسم التفضيل (مجرّد، مُعَرَّف بأل، مضاف) وحكم مطابقة المطابق للمفضل." }
+                    ]
+                },
+                sci: {
+                    title: "الفرع العلمي",
+                    description: "المقرر المخصص لطلاب الفرع العلمي مع التركيز على القواعد والتدريبات التطبيقية.",
+                    icon: "fa-atom",
+                    lessons: [
+                        { id: 1, title: "إعمال اسم الفاعل وصيغ المبالغة", category: "النحو والصرف", summary: "عمل اسم الفاعل وصيغ المبالغة عمل فعلها اللازم أو المتعدي." },
+                        { id: 2, title: "الممنوع من الصرف لعلتين ولعلة واحدة", category: "النحو", summary: "أحكام منع الاسم من الصرف وعلامات الإعراب الخاصة به." }
+                    ]
+                }
+            },
+            quizzes: JSON.parse(localStorage.getItem('esbah_quizzes')) || [
+                {
+                    id: 1,
+                    question: "ما حكم إعمال المصدر إذا كان مضافاً إلى فاعله؟",
+                    options: ["يمتنع إعماله مطلقاً", "يجب إعماله وجوباً", "يجوز إعماله وإلغاؤه", "يُعمل بشروط قاسية"],
+                    correct: 1,
+                    explanation: "إذا أُضيف المصدر إلى فاعله فإنه يعمل عمل فعله وجوباً لأن الإضافة تُقوّي الارتباط."
+                },
+                {
+                    id: 2,
+                    question: "في جملة (أعجبني صعودُ الجبلِ)، ما إعراب كلمة (الجبلِ)؟",
+                    options: ["فاعل مرفوع", "مضاف إليه مجرور", "مفعول به منصوب للمصدر", "نعت مجرور"],
+                    correct: 1,
+                    explanation: "الجبل أُضيف إليه المصدر صعود، فهو مضاف إليه مجرور وعلامة جره الكسرة."
+                }
+            ]
+        };
+
+        function saveData() {
+            localStorage.setItem('esbah_teacherName', portalData.teacherName);
+            localStorage.setItem('esbah_teacherTitle', portalData.teacherTitle);
+            localStorage.setItem('esbah_teacherPhoto', portalData.teacherPhoto);
+            localStorage.setItem('esbah_branches', JSON.stringify(portalData.branches));
+            localStorage.setItem('esbah_quizzes', JSON.stringify(portalData.quizzes));
+        }
+
+        function adjustFontSize(delta) {
+            portalData.fontSizeMultiplier = Math.max(14, Math.min(24, portalData.fontSizeMultiplier + delta));
+            document.body.style.fontSize = portalData.fontSizeMultiplier + 'px';
+            localStorage.setItem('esbah_fontSize', portalData.fontSizeMultiplier);
+        }
+
+        function setFontSize(size) {
+            portalData.fontSizeMultiplier = size;
+            document.body.style.fontSize = portalData.fontSizeMultiplier + 'px';
+            localStorage.setItem('esbah_fontSize', portalData.fontSizeMultiplier);
+            
+            const msg = document.createElement('div');
+            msg.className = "fixed bottom-5 left-5 bg-[#165A7B] text-white text-xs px-4 py-3 rounded-xl shadow-lg z-50 font-['Cairo']";
+            msg.innerHTML = '<i class="fa-solid fa-check ml-2"></i> تم تطبيق وحفظ حجم الخط بنجاح!';
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 2500);
+        }
+
+        function go(view, param1, param2) {
+            portalData.currentView = view;
+            if (view === 'branch') {
+                portalData.currentBranch = param1;
+            } else if (view === 'lesson') {
+                portalData.currentBranch = param1;
+                portalData.currentLesson = param2;
+            }
+            renderApp();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderApp() {
+            const container = document.getElementById('app-content');
+            if (!container) return;
+
+            if (portalData.currentView === 'home') {
+                container.innerHTML = `
+                    <!-- Hero Section -->
+                    <div class="relative overflow-hidden rounded-2xl maroon-header text-white p-6 md:p-10 shadow-lg border border-[#8A1538]/20">
+                        <div class="absolute -left-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                        
+                        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                            <div class="text-center md:text-right space-y-3.5 max-w-xl">
+                                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/20 text-[#EAB893] text-xs font-semibold border border-white/20">
+                                    <i class="fa-solid fa-graduation-cap text-xs"></i>
+                                    <span>الصف الثاني عشر – الفصل الدراسي الأول</span>
+                                </div>
+                                <h1 class="text-2xl md:text-3xl font-bold leading-tight text-white">
+                                    الإصباح في <span class="text-[#EAB893]">اللغة العربية</span>
+                                </h1>
+                                <p class="text-slate-100 text-sm md:text-base leading-relaxed font-['Open_Sans']">
+                                    منصتكم الشاملة في النحو والصرف والقواعد. دروس مبسطة، شروح وافية وفق معايير التقييم الوطنية وبنك أسئلة تفاعلي مكثف.
+                                </p>
+                                <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+                                    <button onclick="go('branch','lit')" class="px-5 py-2.5 rounded-xl bg-[#165A7B] hover:bg-[#124963] text-white font-semibold text-xs shadow transition-all flex items-center gap-2">
+                                        <i class="fa-solid fa-book-open"></i>
+                                        <span>الفرع الأدبي</span>
+                                    </button>
+                                    <button onclick="go('branch','sci')" class="px-5 py-2.5 rounded-xl bg-[#0B1B3D] hover:bg-slate-800 text-white font-semibold text-xs border border-white/20 transition-all flex items-center gap-2">
+                                        <i class="fa-solid fa-atom text-[#EAB893]"></i>
+                                        <span>الفرع العلمي</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Teacher Profile Card -->
+                            <div class="flex flex-col items-center justify-center p-4 bg-white/15 backdrop-blur-md rounded-2xl border border-white/25 shadow-md w-48 relative">
+                                <button onclick="go('admin')" title="تعديل الصورة والمعلومات" class="absolute top-2 left-2 w-6 h-6 rounded-full bg-black/40 hover:bg-[#165A7B] text-white flex items-center justify-center text-[10px] transition-all">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <div class="w-32 h-40 rounded-xl overflow-hidden border-2 border-white/40 shadow-md mb-2 bg-slate-100 flex items-center justify-center">
+                                    <img src="${portalData.teacherPhoto}" alt="صورة المعلم" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='${defaultTeacherPhoto}';">
+                                </div>
+                                <span class="text-xs font-bold text-white text-center">${portalData.teacherName}</span>
+                                <span class="text-[11px] text-[#EAB893] font-medium text-center">${portalData.teacherTitle}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Light Gray Information Box -->
+                    <div class="gov-gray-box p-6 rounded-2xl flex items-center gap-4 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-[#f5f4ef] border border-[#aaa]/30 text-[#165A7B] flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-[#313b40] mb-1">إضاءة منهجية وبلاغية</h4>
+                            <p class="text-xs md:text-sm text-[#767171] font-['Open_Sans'] leading-relaxed">
+                                نضع بين أيديكم خلاصة القواعد والمهارات النحوية والصرفية وفق أحدث مواصفات اختبارات وزارة التربية والتعليم والتعليم العالي بدولة قطر.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Branch Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div onclick="go('branch','lit')" class="group p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#8a1538] shadow-sm hover:shadow-md transition-all cursor-pointer relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-2 h-full bg-[#8a1538]"></div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#8a1538]/10 text-[#8a1538] flex items-center justify-center text-xl group-hover:bg-[#8a1538] group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-sm text-slate-900">الفرع الأدبي</h3>
+                                    <p class="text-xs text-[#767171] font-['Open_Sans']">المقرر الكامل في النحو والصرف والبلاغة</p>
+                                </div>
+                            </div>
+                            <p class="text-xs md:text-sm text-[#767171] font-['Open_Sans'] mb-4">يتضمن دروس إعمال المصدر، المصادر المؤولة، وجميع مهارات الفرع الأدبي بدقة متناهية.</p>
+                            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8a1538]">
+                                <span>استعراض الدروس</span>
+                                <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                            </span>
+                        </div>
+
+                        <div onclick="go('branch','sci')" class="group p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#165A7B] shadow-sm hover:shadow-md transition-all cursor-pointer relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-2 h-full bg-[#165A7B]"></div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-[#165A7B]/10 text-[#165A7B] flex items-center justify-center text-xl group-hover:bg-[#165A7B] group-hover:text-white transition-all">
+                                    <i class="fa-solid fa-atom"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-sm text-slate-900">الفرع العلمي</h3>
+                                    <p class="text-xs text-[#767171] font-['Open_Sans']">المقرر المخصص لطلاب الفرع العلمي</p>
+                                </div>
+                            </div>
+                            <p class="text-xs md:text-sm text-[#767171] font-['Open_Sans'] mb-4">يغطي دروس إعمال اسم الفاعل، صيغ المبالغة، والممنوع من الصرف بشروح مبسطة ومباشرة.</p>
+                            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-[#165A7B]">
+                                <span>استعراض الدروس</span>
+                                <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                            </span>
+                        </div>
+                    </div>
+                `;
+            } else if (portalData.currentView === 'branch') {
+                const branch = portalData.branches[portalData.currentBranch];
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between bg-[#f5f4ef] p-4 rounded-xl border border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <button onclick="go('home')" class="p-2 rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                                <div>
+                                    <h2 class="text-base font-bold text-[#8a1538]">${branch.title}</h2>
+                                    <p class="text-xs text-[#767171] font-['Open_Sans']">${branch.description}</p>
+                                </div>
+                            </div>
+                            <button onclick="go('admin')" class="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-[#8a1538] border border-[#8a1538]/30 rounded-lg text-xs font-semibold flex items-center gap-1">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                                <span>إضافة درس جديد</span>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            ${branch.lessons.map(l => `
+                                <div onclick="go('lesson', '${portalData.currentBranch}', ${l.id})" class="p-5 rounded-xl bg-white border border-slate-200 hover:border-[#8a1538] shadow-sm cursor-pointer transition-all space-y-3">
+                                    <span class="px-2.5 py-0.5 rounded-full bg-[#f5f4ef] text-slate-700 text-xs font-semibold">${l.category}</span>
+                                    <h3 class="font-bold text-sm text-slate-900">${l.title}</h3>
+                                    <p class="text-xs md:text-sm text-[#767171] font-['Open_Sans'] leading-relaxed">${l.summary}</p>
+                                    <div class="pt-2 flex items-center justify-between text-xs text-[#8a1538] font-bold">
+                                        <span>قراءة الدرس والشرح</span>
+                                        <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (portalData.currentView === 'lesson') {
+                const branch = portalData.branches[portalData.currentBranch];
+                const lesson = branch.lessons.find(l => l.id === portalData.currentLesson);
+                container.innerHTML = `
+                    <div class="space-y-6 max-w-3xl mx-auto bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+                            <button onclick="go('branch', '${portalData.currentBranch}')" class="inline-flex items-center gap-1.5 text-xs text-[#767171] hover:text-[#8a1538]">
+                                <i class="fa-solid fa-arrow-right"></i>
+                                <span>العودة لقائمة دروس ${branch.title}</span>
+                            </button>
+                            <span class="px-3 py-1 rounded-full bg-[#8a1538]/10 text-[#8a1538] text-xs font-semibold">${lesson.category}</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h1 class="text-xl md:text-2xl font-bold text-slate-900">${lesson.title}</h1>
+                            <p class="text-xs text-[#767171] font-['Open_Sans']">إعداد ${portalData.teacherName} — مساق اللغة العربية للصف الثاني عشر</p>
+                            
+                            <div class="gov-gray-box p-4 rounded-xl text-xs md:text-sm space-y-2">
+                                <h4 class="font-bold text-slate-800">موجز الدرس:</h4>
+                                <p class="text-[#767171] font-['Open_Sans']">${lesson.summary}</p>
+                            </div>
+
+                            <div class="space-y-4 text-xs md:text-sm text-slate-700 leading-relaxed pt-3 font-['Open_Sans']">
+                                <h3 class="font-bold text-sm md:text-base text-[#8a1538] font-['Cairo']">أولاً: القاعدة النحوية أو الصرفية</h3>
+                                <p>يُعد هذا الدرس ركيزة أساسية من ركائز النحو العربي المقررة في دولة قطر، حيث يركز على الفهم الدقيق للبنية الإعرابية وشروط العمل للألفاظ والمشتقات.</p>
+                                
+                                <h3 class="font-bold text-sm md:text-base text-[#8a1538] font-['Cairo']">ثانياً: أمثلة توضيحية وإعراب</h3>
+                                <ul class="list-disc list-inside space-y-2 pr-2 text-slate-700">
+                                    <li>المثال الأول: توضيح المعنى والشاهد النحوي من الشواهد الواردة في المنهج الوزاري.</li>
+                                    <li>المثال الثاني: التطبيق العملي على صيغ الأسئلة المتوقعة في اختبارات الفصل الدراسي الأول.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t border-slate-100 flex justify-between items-center">
+                            <button onclick="go('quizzes')" class="px-4 py-2.5 primary-button text-xs md:text-sm font-semibold">
+                                الانتقال لبنك الأسئلة التدريبي
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (portalData.currentView === 'quizzes') {
+                container.innerHTML = `
+                    <div class="space-y-6 max-w-3xl mx-auto">
+                        <div class="flex items-center justify-between bg-[#f5f4ef] p-4 rounded-xl border border-slate-200">
+                            <div>
+                                <h2 class="text-base font-bold text-[#8a1538]">بنك الأسئلة والتدريبات التفاعلية</h2>
+                                <p class="text-xs text-[#767171] font-['Open_Sans']">اختبر استيعابك للقواعد النحوية والصرفية</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="go('admin')" class="px-3 py-1.5 bg-amber-50 border border-[#8a1538]/30 text-[#8a1538] rounded-lg text-xs font-semibold">
+                                    + إضافة سؤال جديد
+                                </button>
+                                <button onclick="go('home')" class="px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-slate-700 text-xs">الرئيسية</button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-5" id="quiz-container">
+                            ${portalData.quizzes.map((q, idx) => `
+                                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                                    <div class="flex items-start gap-3">
+                                        <span class="w-7 h-7 rounded-full bg-[#8a1538] text-white flex items-center justify-center text-xs font-bold shrink-0">${idx + 1}</span>
+                                        <h3 class="font-bold text-sm md:text-base text-slate-900 pt-0.5">${q.question}</h3>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 pr-10">
+                                        ${q.options.map((opt, optIdx) => `
+                                            <button onclick="checkAnswer(this, ${idx}, ${optIdx}, ${q.correct})" class="p-3 rounded-xl border border-slate-200 hover:bg-slate-50 text-right text-xs md:text-sm text-slate-700 transition-all font-['Open_Sans']">
+                                                ${opt}
+                                            </button>
+                                        `).join('')}
+                                    </div>
+                                    <div id="explanation-${idx}" class="hidden mt-3 p-3.5 rounded-xl bg-[#f5f4ef] text-xs md:text-sm text-slate-700 border border-slate-200 font-['Open_Sans']">
+                                        <strong>توضيح الإجابة:</strong> ${q.explanation}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (portalData.currentView === 'about') {
+                container.innerHTML = `
+                    <div class="max-w-2xl mx-auto bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-5 text-center">
+                        <div class="w-36 h-44 rounded-xl overflow-hidden mx-auto shadow-md border-2 border-[#8a1538]/30 mb-3 bg-slate-100 flex items-center justify-center">
+                            <img src="${portalData.teacherPhoto}" alt="صورة المعلم" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='${defaultTeacherPhoto}';">
+                        </div>
+                        <h2 class="text-lg font-bold text-[#8a1538]">${portalData.teacherName}</h2>
+                        <p class="text-xs text-[#165A7B] font-semibold">${portalData.teacherTitle}</p>
+                        <p class="text-xs md:text-sm text-[#767171] font-['Open_Sans'] leading-relaxed max-w-lg mx-auto">
+                            منصة تعليمية تخصصية أُنشئت لخدمة طلاب الصف الثاني عشر بدولة قطر (الفصل الدراسي الأول). تهدف المنصة إلى تذليل صعوبات النحو والصرف، وتقديم شرح مبسط دقيق يتوافق مع معايير وزارة التربية والتعليم والتعليم العالي.
+                        </p>
+                        <div class="pt-4 flex justify-center gap-3">
+                            <button onclick="go('admin')" class="px-4 py-2 bg-amber-50 hover:bg-amber-100 text-[#8a1538] border border-[#8a1538]/30 rounded-lg text-xs font-semibold">لوحة التحكم والصورة</button>
+                            <button onclick="go('home')" class="px-4 py-2 primary-button text-xs font-semibold">العودة للرئيسية</button>
+                        </div>
+                    </div>
+                `;
+            } else if (portalData.currentView === 'admin') {
+                container.innerHTML = `
+                    <div class="max-w-4xl mx-auto space-y-6">
+                        <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-[#165A7B] text-white flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-sm font-bold text-amber-900">لوحة تحكم المعلم (بدون كلمة مرور)</h2>
+                                    <p class="text-xs text-amber-700 font-['Open_Sans']">يمكنك رفع صورتك الشخصية، تعديل بياناتك، أو إضافة دروس جديدة وبنك الأسئلة فوراً.</p>
+                                </div>
+                            </div>
+                            <button onclick="go('home')" class="px-3 py-1.5 bg-white border border-slate-300 text-slate-700 rounded-lg text-xs hover:bg-slate-50">
+                                العودة للمنصة
+                            </button>
+                        </div>
+
+                        <!-- 1. Font Size Accessibility Settings -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                            <h3 class="text-sm font-bold text-[#8a1538] border-b pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-text-height"></i>
+                                <span>إعدادات حجم الخط والوصول المريح</span>
+                            </h3>
+                            <div class="space-y-3 text-xs">
+                                <label class="block font-semibold text-slate-700">اختر حجم الخط المناسب للقراءة في المنصة (يتم حفظه تلقائياً):</label>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                    <button onclick="setFontSize(15)" class="p-3 bg-slate-50 hover:bg-slate-100 rounded-xl font-semibold text-slate-700 border border-slate-200 transition-all">صغير (15px)</button>
+                                    <button onclick="setFontSize(17)" class="p-3 bg-slate-50 hover:bg-slate-100 rounded-xl font-semibold text-slate-700 border border-slate-200 transition-all">متوسط (17px - افتراضي)</button>
+                                    <button onclick="setFontSize(19)" class="p-3 bg-slate-50 hover:bg-slate-100 rounded-xl font-semibold text-slate-700 border border-slate-200 transition-all">كبير (19px)</button>
+                                    <button onclick="setFontSize(22)" class="p-3 bg-slate-50 hover:bg-slate-100 rounded-xl font-semibold text-slate-700 border border-slate-200 transition-all">كبير جداً (22px)</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Upload Teacher Photo & Details -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                            <h3 class="text-sm font-bold text-[#8a1538] border-b pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-image"></i>
+                                <span>تعديل الصورة الشخصية والمعلومات</span>
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                                <div class="flex flex-col items-center justify-center">
+                                    <div class="w-36 h-44 rounded-xl overflow-hidden border-2 border-slate-300 shadow bg-slate-100 flex items-center justify-center mb-2">
+                                        <img id="admin-photo-preview" src="${portalData.teacherPhoto}" class="w-full h-full object-cover object-top" onerror="this.onerror=null; this.src='${defaultTeacherPhoto}';">
+                                    </div>
+                                    <span class="text-xs text-[#767171]">معاينة الصورة الحالية</span>
+                                </div>
+                                <div class="md:col-span-2 space-y-3.5 text-xs">
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">اسم المعلم / المشرف:</label>
+                                        <input type="text" id="input-teacher-name" value="${portalData.teacherName}" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-1 focus:ring-[#8a1538] outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">المسمى / الصفة:</label>
+                                        <input type="text" id="input-teacher-title" value="${portalData.teacherTitle}" class="w-full p-2.5 border border-slate-300 rounded-lg focus:ring-1 focus:ring-[#8a1538] outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">رفع صورتك من جهازك (اختر صورة المدرس):</label>
+                                        <input type="file" id="input-teacher-file" accept="image/*" onchange="handleImageUpload(event)" class="w-full p-2 border border-slate-300 rounded-lg bg-slate-50">
+                                    </div>
+                                    <button onclick="saveProfileInfo()" class="px-4 py-2.5 primary-button text-xs font-semibold shadow">
+                                        حفظ بيانات المعلم والصورة الشخصية
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Add New Lesson -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                            <h3 class="text-sm font-bold text-[#8a1538] border-b pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-plus-circle"></i>
+                                <span>إضافة درس جديد للمقرر</span>
+                            </h3>
+                            <form onsubmit="addNewLesson(event)" class="space-y-3.5 text-xs">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">الفرع الدراسي:</label>
+                                        <select id="lesson-branch" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white">
+                                            <option value="lit">الفرع الأدبي</option>
+                                            <option value="sci">الفرع العلمي</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">تصنيف الدرس (مثلاً: نحو / صرف):</label>
+                                        <input type="text" id="lesson-category" required placeholder="مثال: النحو والصرف" class="w-full p-2.5 border border-slate-300 rounded-lg">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block font-semibold text-slate-700 mb-1">عنوان الدرس:</label>
+                                    <input type="text" id="lesson-title" required placeholder="مثال: إعمال اسم المفعول" class="w-full p-2.5 border border-slate-300 rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block font-semibold text-slate-700 mb-1">ملخص القواعد والشرح:</label>
+                                    <textarea id="lesson-summary" rows="3" required placeholder="اكتب ملخص الدرس هنا..." class="w-full p-2.5 border border-slate-300 rounded-lg"></textarea>
+                                </div>
+                                <button type="submit" class="px-4 py-2 bg-[#165A7B] text-white rounded-lg font-semibold hover:bg-[#124963]">
+                                    إضافة الدرس رسمياً للمنصة
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- 3. Add New Quiz Question -->
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                            <h3 class="text-sm font-bold text-[#8a1538] border-b pb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-question-circle"></i>
+                                <span>إضافة سؤال جديد لبنك الأسئلة</span>
+                            </h3>
+                            <form onsubmit="addNewQuiz(event)" class="space-y-3.5 text-xs">
+                                <div>
+                                    <label class="block font-semibold text-slate-700 mb-1">نص السؤال:</label>
+                                    <input type="text" id="quiz-question" required placeholder="مثال: ما إعراب الكلمة المخطوطة..." class="w-full p-2.5 border border-slate-300 rounded-lg">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">الخيار الأول (1):</label>
+                                        <input type="text" id="quiz-opt-0" required class="w-full p-2.5 border border-slate-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">الخيار الثاني (2):</label>
+                                        <input type="text" id="quiz-opt-1" required class="w-full p-2.5 border border-slate-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">الخيار الثالث (3):</label>
+                                        <input type="text" id="quiz-opt-2" required class="w-full p-2.5 border border-slate-300 rounded-lg">
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">الخيار الرابع (4):</label>
+                                        <input type="text" id="quiz-opt-3" required class="w-full p-2.5 border border-slate-300 rounded-lg">
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">رقم الإجابة الصحيحة:</label>
+                                        <select id="quiz-correct" class="w-full p-2.5 border border-slate-300 rounded-lg bg-white">
+                                            <option value="0">الخيار الأول</option>
+                                            <option value="1">الخيار الثاني</option>
+                                            <option value="2">الخيار الثالث</option>
+                                            <option value="3">الخيار الرابع</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block font-semibold text-slate-700 mb-1">التوضيح والتعليل النحوي:</label>
+                                        <input type="text" id="quiz-explanation" required placeholder="شرح النقطة النحوية..." class="w-full p-2.5 border border-slate-300 rounded-lg">
+                                    </div>
+                                </div>
+                                <button type="submit" class="px-4 py-2 bg-[#8a1538] text-white rounded-lg font-semibold hover:opacity-90">
+                                    إضافة السؤال للبنك
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                portalData.teacherPhoto = evt.target.result;
+                const preview = document.getElementById('admin-photo-preview');
+                if (preview) preview.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveProfileInfo() {
+            const name = document.getElementById('input-teacher-name').value;
+            const title = document.getElementById('input-teacher-title').value;
+            if (name) portalData.teacherName = name;
+            if (title) portalData.teacherTitle = title;
+            saveData();
+            
+            const msg = document.createElement('div');
+            msg.className = "fixed bottom-5 left-5 bg-emerald-600 text-white text-xs px-4 py-3 rounded-xl shadow-lg z-50 transition-all font-['Cairo']";
+            msg.innerHTML = '<i class="fa-solid fa-check ml-2"></i> تم حفظ بيانات المعلم والصورة الشخصية بنجاح!';
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+
+            go('home');
+        }
+
+        function addNewLesson(e) {
+            e.preventDefault();
+            const branchKey = document.getElementById('lesson-branch').value;
+            const category = document.getElementById('lesson-category').value;
+            const title = document.getElementById('lesson-title').value;
+            const summary = document.getElementById('lesson-summary').value;
+
+            const newId = portalData.branches[branchKey].lessons.length + 1;
+            portalData.branches[branchKey].lessons.push({
+                id: newId,
+                title: title,
+                category: category,
+                summary: summary
+            });
+            saveData();
+            
+            const msg = document.createElement('div');
+            msg.className = "fixed bottom-5 left-5 bg-emerald-600 text-white text-xs px-4 py-3 rounded-xl shadow-lg z-50 font-['Cairo']";
+            msg.innerHTML = '<i class="fa-solid fa-check ml-2"></i> تم إضافة الدرس الجديد بنجاح!';
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+
+            go('branch', branchKey);
+        }
+
+        function addNewQuiz(e) {
+            e.preventDefault();
+            const question = document.getElementById('quiz-question').value;
+            const opt0 = document.getElementById('quiz-opt-0').value;
+            const opt1 = document.getElementById('quiz-opt-1').value;
+            const opt2 = document.getElementById('quiz-opt-2').value;
+            const opt3 = document.getElementById('quiz-opt-3').value;
+            const correct = parseInt(document.getElementById('quiz-correct').value);
+            const explanation = document.getElementById('quiz-explanation').value;
+
+            portalData.quizzes.push({
+                id: portalData.quizzes.length + 1,
+                question: question,
+                options: [opt0, opt1, opt2, opt3],
+                correct: correct,
+                explanation: explanation
+            });
+            saveData();
+
+            const msg = document.createElement('div');
+            msg.className = "fixed bottom-5 left-5 bg-[#165A7B] text-white text-xs px-4 py-3 rounded-xl shadow-lg z-50 font-['Cairo']";
+            msg.innerHTML = '<i class="fa-solid fa-check ml-2"></i> تم إضافة السؤال بنجاح لبنك الأسئلة!';
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+
+            go('quizzes');
+        }
+
+        function checkAnswer(btn, quizIdx, selectedOpt, correctOpt) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('hover:bg-slate-50');
+            });
+
+            if (selectedOpt === correctOpt) {
+                btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-800', 'font-semibold');
+                btn.innerHTML += ' <i class="fa-solid fa-check text-emerald-600 float-left"></i>';
+            } else {
+                btn.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-800', 'font-semibold');
+                btn.innerHTML += ' <i class="fa-solid fa-xmark text-rose-600 float-left"></i>';
+                buttons[correctOpt].classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-800', 'font-semibold');
+            }
+
+            const exp = document.getElementById(`explanation-${quizIdx}`);
+            if (exp) exp.classList.remove('hidden');
+        }
+
+        window.onload = function() {
+            if (portalData.fontSizeMultiplier) {
+                document.body.style.fontSize = portalData.fontSizeMultiplier + 'px';
+            }
+            renderApp();
+        };
+    </script>
+</body>
+</html>
